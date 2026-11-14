@@ -1,14 +1,20 @@
 import { useState } from "react";
 
-export default function AuthScreens() {
+// CAMBIO 1: Aquí agregamos { onLogin }
+// Esto es para que este componente reciba la función que lo deja entrar a Reportes
+// Antes decía solo: export default function AuthScreens() {
+export default function AuthScreens({ onLogin }) {
   const [isLogin, setIsLogin] = useState(true);
   const [form, setForm] = useState({ nombre: "", correo: "", pass: "" });
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
+  // CAMBIO 2: Aquí quitamos el alert y pusimos onLogin()
+  // Antes aquí decía: alert("Bienvenido...")
+  // Ahora cuando le das Entrar, llama a onLogin y te lleva a la pantalla de reportes
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(isLogin ? `Bienvenido ${form.correo}` : `Cuenta creada para ${form.nombre}`);
+    if (onLogin) onLogin(); // <- ESTA LÍNEA ES LA QUE TE DEJA ENTRAR
   };
 
   return (
