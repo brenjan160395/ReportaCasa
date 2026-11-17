@@ -37,7 +37,7 @@ export default function App() {
     }
     // T-04 - Bloquear código sospechoso
     if (esPeligroso(email) || esPeligroso(password)) {
-      setMensaje("T-04: Intento sospechoso bloqueado. No se permite código en el login.");
+      setMensaje("Intento sospechoso bloqueado. No se permite código en el login.");
       return;
     }
     // T-03 - Validar correo
@@ -56,7 +56,7 @@ export default function App() {
       setIntentos(nuevos);
       if (nuevos >= 3) {
         setBloqueado(true);
-        setMensaje("T-04: 3 intentos fallidos. Cuenta bloqueada por seguridad.");
+        setMensaje("3 intentos fallidos. Cuenta bloqueada por seguridad.");
       } else {
         setMensaje("Contraseña incorrecta. Intento " + nuevos + " de 3. Prueba T-04.");
       }
