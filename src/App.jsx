@@ -58,7 +58,7 @@ export default function App() {
         setBloqueado(true);
         setMensaje("3 intentos fallidos. Cuenta bloqueada por seguridad.");
       } else {
-        setMensaje("Contraseña incorrecta. Intento " + nuevos + " de 3. Prueba T-04.");
+        setMensaje("Contraseña incorrecta. Intento " + nuevos + " de 3.");
       }
       return;
     }
@@ -130,7 +130,7 @@ export default function App() {
       <button onClick={entrar} style={{ padding: "10px 20px" }}>Entrar</button>
       <br /><br />
       <button onClick={recuperar} style={{ background: "none", border: "none", color: "blue", cursor: "pointer" }}>¿Olvidaste tu contraseña?</button>
-      <p>Intentos fallidos T-04: {intentos} de 3</p>
+      <p>Intentos fallidos: {intentos} de 3</p>
       <p style={{ color: "red" }}>{mensaje}</p>
     </div>
   );
