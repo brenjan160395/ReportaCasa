@@ -14,7 +14,7 @@ export default function App() {
   const [correo, setCorreo] = useState("");
   const [password, setPassword] = useState("");
   const [logueado, setLogueado] = useState(false);
-  const [servicioMapa] = useState("leaflet");
+  const [servicioMapa, setServicioMapa] = useState("leaflet");
 
   const entrar = () => {
     if (correo === "prueba@gmail.com" && password === "123456") {
@@ -52,16 +52,26 @@ export default function App() {
 
   return (
     <div style={{ maxWidth: "700px", margin: "20px auto", padding: "20px", fontFamily: "Arial" }}>
-      <h2>Bienvenido a ReportaCasa 🏠</h2>
-      <p>Usuario: {correo}</p>
-      <button onClick={() => setLogueado(false)} style={{ padding: "8px 15px", marginBottom: "20px" }}>Cerrar sesión</button>
+      <h2>¡Entraste a ReportaCasa!</h2>
+      <p>¿Qué quieres reportar?</p>
+      <p>Reportes cargados: 0</p>
 
       {/* T-05 */}
       <div style={{ background: "#e3f2fd", padding: "15px", borderRadius: "10px", marginBottom: "20px" }}>
-        <h3>T-05 - Servicio de mapas elegidos</h3>
-        <p>Servicio actual: <b>{servicioMapa}</b></p>
+        <h3>T-05 - Servicio de mapas elegido</h3>
         <p><b>Elegido: Leaflet + OpenStreetMap</b></p>
-        <p>¿Por qué Leaflet? Porque es gratis, no pide API Key y funciona bien en Tlajomulco.</p>
+        <p>Elige servicio de mapas:</p>
+        <select
+          value={servicioMapa}
+          onChange={(e) => setServicioMapa(e.target.value)}
+          style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
+        >
+          <option value="leaflet">Leaflet + OpenStreetMap - GRATIS, sin API Key ✅ ELEGIDO</option>
+          <option value="google">Google Maps - Pide API Key y cobra</option>
+          <option value="mapbox">Mapbox - Pide API Key</option>
+        </select>
+        <p>Servicio actual: <b>{servicioMapa}</b></p>
+        <p>¿Por qué Leaflet? Es gratis, no pide API Key, funciona en React y deja poner marcadores.</p>
       </div>
 
       {/* T-06 */}
@@ -81,6 +91,8 @@ export default function App() {
         </div>
         <p>Toca el pin 📍 para ver la zona piloto</p>
       </div>
+
+      <button onClick={() => setLogueado(false)} style={{ padding: "8px 15px", marginTop: "20px" }}>Cerrar sesión</button>
     </div>
   );
 }
