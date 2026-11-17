@@ -14,7 +14,6 @@ export default function App() {
   const [correo, setCorreo] = useState("");
   const [password, setPassword] = useState("");
   const [logueado, setLogueado] = useState(false);
-  const [servicioMapa, setServicioMapa] = useState("leaflet");
 
   const entrar = () => {
     if (correo === "prueba@gmail.com" && password === "123456") {
@@ -56,28 +55,9 @@ export default function App() {
       <p>¿Qué quieres reportar?</p>
       <p>Reportes cargados: 0</p>
 
-      {/* T-05 */}
-      <div style={{ background: "#e3f2fd", padding: "15px", borderRadius: "10px", marginBottom: "20px" }}>
-        <h3>T-05 - Servicio de mapas elegido</h3>
-        <p><b>Elegido: Leaflet + OpenStreetMap</b></p>
-        <p>Elige servicio de mapas:</p>
-        <select
-          value={servicioMapa}
-          onChange={(e) => setServicioMapa(e.target.value)}
-          style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
-        >
-          <option value="leaflet">Leaflet + OpenStreetMap - GRATIS, sin API Key ✅ ELEGIDO</option>
-          <option value="google">Google Maps - Pide API Key y cobra</option>
-          <option value="mapbox">Mapbox - Pide API Key</option>
-        </select>
-        <p>Servicio actual: <b>{servicioMapa}</b></p>
-        <p>¿Por qué Leaflet? Es gratis, no pide API Key, funciona en React y deja poner marcadores.</p>
-      </div>
-
-      {/* T-06 */}
+      {/* MAPA - Tlajomulco de Zúñiga */}
       <div style={{ background: "#fff", padding: "15px", border: "1px solid #ddd", borderRadius: "10px" }}>
-        <h3>🗺️ Mapa - T-06 Tlajomulco de Zúñiga</h3>
-        <p>Servicio: <b>{servicioMapa}</b> - Leaflet + OpenStreetMap</p>
+        <h3>🗺️ Mapa - Tlajomulco de Zúñiga</h3>
         <div style={{ height: "350px", width: "100%", borderRadius: "10px", overflow: "hidden" }}>
           <MapContainer center={[20.473, -103.445]} zoom={13} style={{ height: "100%", width: "100%" }}>
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
